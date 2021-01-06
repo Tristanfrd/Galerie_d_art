@@ -1,4 +1,5 @@
 package galerie.entity;
+import java.util.List;
 import javax.persistence.*;
 import lombok.*;
 
@@ -18,6 +19,9 @@ public class Galerie {
     @Column(unique=true)
     @NonNull
     private String adresse;
+  
+    @OneToMany (mappedBy = "galerie")
+    private List<Exposition> exposition;
     
     // TODO : Mettre en oeuvre la relation oneToMany vers Exposition
 }
