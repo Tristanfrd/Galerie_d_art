@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package galerie.entity;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 import lombok.*;
 /**
@@ -23,18 +25,19 @@ public class Tableau {
     @NonNull
     private String support;
     
-    @NonNull
     private int largeur;
     
-    @NonNull
     private int hauteur;
     
     @ManyToMany
-    //Expo
+    @NonNull
+    List<Exposition> accrochage = new ArrayList<>();
     
-    @OneToOne
-    //Transaction
+    @OneToOne (mappedBy = "oeuvre")
+    @NonNull
+    private Transaction vendu;
     
     @ManyToOne
-    //Artiste
+    @NonNull
+    private Artiste auteur ;
 }
