@@ -1,4 +1,5 @@
 package galerie.entity;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
 import lombok.*;
@@ -20,8 +21,17 @@ public class Galerie {
     @NonNull
     private String adresse;
   
-    @OneToMany (mappedBy = "galerie")
-    private List<Exposition> exposition;
+    @OneToMany (mappedBy = "organisateur")
+    @NonNull
+    List<Exposition> evenement = new ArrayList<>();
     
-    // TODO : Mettre en oeuvre la relation oneToMany vers Exposition
+    public float CAannuel(int annee){
+        float caAnnuel=0;
+        for (Exposition e: evenement){
+            if(e.getDebut().getYear() == annee ){
+                caAnnuel = caAnnuel + e.CA();
+            }
+        }
+        return caAnnuel;
+    }
 }
