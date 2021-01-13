@@ -7,6 +7,8 @@ package galerie.entity;
 import javax.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -24,10 +26,25 @@ public class Exposition {
     @NonNull
     private String intitule;
     
-    @NonNull
     private int durée;
     
     @ManyToOne (optional = false)
     @NonNull
-    private Galerie galerie;
+    private Galerie organisateur;
+    
+    @ManyToMany (mappedBy = "accrochage")
+    @NonNull
+    List<Tableau> oeuvres = new ArrayList<>();
+      
+    @OneToMany (mappedBy= "lieuDeVente")
+    @NonNull
+    List<Transaction> ventes = new ArrayList<>();
+    
+    public float CA(){
+        float ca=0;
+        for (Transaction v:ventes){
+            ca = ca + v.getPrixVente();
+        }
+        return ca;
+    }
 }
