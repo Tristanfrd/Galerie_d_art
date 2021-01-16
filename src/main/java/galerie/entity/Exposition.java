@@ -26,6 +26,7 @@ public class Exposition {
     @NonNull
     private String intitule;
     
+    @NonNull
     private int duree;
     
     @ManyToOne (optional = false)
@@ -46,5 +47,9 @@ public class Exposition {
             ca = ca + v.getPrixVente();
         }
         return ca;
+    }
+    
+    public void addTransaction(Transaction t){
+        ventes.add(t);
     }
 }
