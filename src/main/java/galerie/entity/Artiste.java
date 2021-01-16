@@ -21,4 +21,9 @@ public class Artiste extends Personne {
     
     @OneToMany (mappedBy="auteur")
     List<Tableau> oeuvres = new ArrayList<>();
+    
+    public Artiste(String n,String a, String bio){
+        super(n,a);
+        this.biographie = bio;
+    }
 }
