@@ -25,8 +25,10 @@ public class Tableau {
     @NonNull
     private String support;
     
+    @NonNull
     private int largeur;
     
+    @NonNull
     private int hauteur;
     
     @ManyToMany
@@ -34,7 +36,6 @@ public class Tableau {
     List<Exposition> accrochage = new ArrayList<>();
     
     @OneToOne (mappedBy = "oeuvre")
-    @NonNull
     private Transaction vendu;
     
     @ManyToOne
