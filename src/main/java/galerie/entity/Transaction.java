@@ -20,6 +20,7 @@ public class Transaction {
     @NonNull
     private LocalDate venduLe;
     
+    @NonNull
     private float prixVente;
     
     @ManyToOne
