@@ -38,4 +38,8 @@ public class Personne {
         }
         return budget;
     }
+    
+    public void addTransaction(Transaction t){
+        achats.add(t);
+    }
 }
