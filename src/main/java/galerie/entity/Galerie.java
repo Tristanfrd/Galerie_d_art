@@ -34,4 +34,8 @@ public class Galerie {
         }
         return caAnnuel;
     }
+    
+    public void addExposition(Exposition e){
+        evenement.add(e);
+    }
 }
