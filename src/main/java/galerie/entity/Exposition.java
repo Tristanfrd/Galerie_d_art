@@ -26,7 +26,7 @@ public class Exposition {
     @NonNull
     private String intitule;
     
-    private int durée;
+    private int duree;
     
     @ManyToOne (optional = false)
     @NonNull
